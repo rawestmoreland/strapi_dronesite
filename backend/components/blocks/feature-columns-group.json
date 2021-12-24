@@ -5,11 +5,5 @@
     "icon": "align-center"
   },
   "options": {},
-  "attributes": {
-    "features": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.feature-column"
-    }
-  }
+  "attributes": {}
 }

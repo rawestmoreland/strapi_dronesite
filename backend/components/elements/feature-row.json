@@ -2,7 +2,8 @@
   "collectionName": "components_elements_feature_rows",
   "info": {
     "name": "FeatureRow",
-    "icon": "arrows-alt-h"
+    "icon": "arrows-alt-h",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,14 +12,14 @@
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "media": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": true,
@@ -28,6 +29,9 @@
       "type": "component",
       "repeatable": false,
       "component": "links.link"
+    },
+    "anchorid": {
+      "type": "string"
     }
   }
 }

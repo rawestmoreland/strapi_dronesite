@@ -1,11 +1,20 @@
 import Hero from '../blocks/Hero'
+import FeatureRowsGroup from '../blocks/FeatureRowsGroup'
+import PhotoGrid from '../blocks/PhotoGrid'
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
 	let Block
+	console.log(__component)
 
 	switch (__component) {
 		case 'blocks.hero':
 			Block = Hero
+			break
+		case 'blocks.feature-rows-group':
+			Block = FeatureRowsGroup
+			break
+		case 'blocks.photogrid':
+			Block = PhotoGrid
 			break
 	}
 
@@ -13,7 +22,7 @@ const getBlockComponent = ({ __component, ...rest }, index) => {
 }
 
 const BlockManager = ({ blocks }) => {
-	return <div>{blocks.map(getBlockComponent)}</div>
+	return <>{blocks.map(getBlockComponent)}</>
 }
 
 BlockManager.defaultProps = {

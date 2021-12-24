@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
-import { getStrapiMedia } from '../../utils/media'
+import { getStrapiMedia } from '../../utils/'
 import { mediaPropTypes } from '../../utils/types'
 
 const Seo = ({ metadata }) => {

@@ -1,9 +1,27 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-export default function NavLink({ text, url, newTab }) {
+export default function NavLink({ link, children }) {
+	const isInternalLink = link.url.startsWith('/')
+
+	if (isInternalLink) {
+		return (
+			<Link href='/[[...slug]]' as={link.url}>
+				{children}
+			</Link>
+		)
+	}
+
+	if (link.newTab) {
+		return (
+			<a href={link.url} target='_blank' rel='noopener noreferrer'>
+				{children}
+			</a>
+		)
+	}
+
 	return (
-		<Link href={url}>
-			<a className='mx-4 hover:text-gray-500'>{text}</a>
-		</Link>
-	);
+		<a href={link.url} target='_self'>
+			{children}
+		</a>
+	)
 }

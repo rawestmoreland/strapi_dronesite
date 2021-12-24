@@ -39,7 +39,8 @@
       "components": [
         "blocks.hero",
         "blocks.feature-columns-group",
-        "blocks.feature-rows-group"
+        "blocks.feature-rows-group",
+        "blocks.photogrid"
       ],
       "pluginOptions": {
         "i18n": {

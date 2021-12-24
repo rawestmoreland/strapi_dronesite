@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_photos",
+  "info": {
+    "name": "Photo",
+    "icon": "smile",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

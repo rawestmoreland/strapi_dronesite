@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_photogrids",
+  "info": {
+    "name": "PhotoGrid",
+    "icon": "photo-video",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "photos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.photo"
+    }
+  }
+}

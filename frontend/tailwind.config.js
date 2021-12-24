@@ -9,6 +9,13 @@ module.exports = {
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
+			container: {
+				center: true,
+				padding: {
+					DEFAULT: '1rem',
+					md: '2rem',
+				},
+			},
 			colors: {
 				'dark-blue': '#12232E',
 				'lighter-blue': '#007CC7',
@@ -27,5 +34,5 @@ module.exports = {
 	variants: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 }

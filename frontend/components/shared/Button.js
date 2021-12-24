@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 export default function Button({
 	text,
 	disabled,
 	variant,
 	type,
+	size,
 	backgroundColor,
 	textColor,
 	onClick,
@@ -13,7 +14,7 @@ export default function Button({
 		<button
 			onClick={onClick}
 			className={`${variant === 'rectangular' ? 'rounded' : ''} ${
-				type === outlined
+				type === 'outlined'
 					? 'border border-' +
 					  backgroundColor +
 					  ' bg-transparent text-shadow-of-light'
@@ -34,7 +35,7 @@ export default function Button({
 		>
 			{text}
 		</button>
-	);
+	)
 }
 
 Button.defaultProps = {
@@ -43,7 +44,7 @@ Button.defaultProps = {
 	variant: 'rectangular',
 	type: 'filled',
 	backgroundColor: 'light-blue',
-};
+}
 
 Button.propTypes = {
 	text: PropTypes.string,
@@ -54,4 +55,4 @@ Button.propTypes = {
 	backgroundColor: PropTypes.string,
 	textColor: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-};
+}

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "name": "Footer",
+    "icon": "football-ball",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["images"],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "smallText": {
+      "type": "string"
+    },
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.footer-section"
+    }
+  }
+}

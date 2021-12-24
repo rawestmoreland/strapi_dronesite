@@ -32,6 +32,16 @@
         "rectangular"
       ],
       "default": "rounded"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large",
+        "fit"
+      ],
+      "default": "medium"
     }
   }
 }

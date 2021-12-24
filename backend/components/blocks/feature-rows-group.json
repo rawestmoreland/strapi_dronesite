@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "features": {
+    "FeatureRow": {
       "type": "component",
       "repeatable": true,
       "component": "elements.feature-row"
