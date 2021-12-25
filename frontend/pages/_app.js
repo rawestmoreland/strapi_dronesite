@@ -1,12 +1,18 @@
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-
+import App from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import { getStrapiMedia } from '../utils'
+import { getGlobalData } from '../utils/api-helpers'
 import './global.css'
 
 function MyApp({ Component, pageProps }) {
 	const { global } = pageProps
+
+	if (global == null) {
+		return <ErrorPage statusCode={404} />
+	}
+
 	const { metadata } = global
 	return (
 		<>
@@ -39,6 +45,19 @@ function MyApp({ Component, pageProps }) {
 			<Component {...pageProps} />
 		</>
 	)
+}
+
+MyApp.getInitialProps = async (appContext) => {
+	// Calls page's `getInitialProps` and fills `appProps.pageProps`
+	const appProps = await App.getInitialProps(appContext)
+	const globalLocale = await getGlobalData(appContext.router.locale)
+
+	return {
+		...appProps,
+		pageProps: {
+			global: globalLocale,
+		},
+	}
 }
 
 export default MyApp

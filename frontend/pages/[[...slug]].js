@@ -28,46 +28,28 @@ const Universals = ({ pageData, global, pageContext }) => {
 }
 
 export async function getStaticPaths({ locales }) {
-	// array of locales provided in context object in getStaticPaths
-	const paths = await Promise.all(
-		locales.map(async (locale) => {
-			// map through the locales
-			const { data } = await client.query({
-				query: gql`
-					query GetAllPages($locale: String) {
-						pages(local: $locale) {
-							slug
-							locale
-						}
-					}
-				`,
-				variables: { locale },
-			})
-			return {
-				pages: data.pages,
-				locale,
-			}
-		})
-	).reduce((acc, item) => {
-		item.pages.map((p) => {
-			// reduce through the array of returned objects
-			acc.push({
-				params: {
-					slug: p.slug === '/' ? false : p.slug.split('/'),
-				},
-				locale: p.locale,
-			})
-			return p
-		})
-		return acc
-	}, [])
-	return {
-		paths,
-		fallback: false,
-	}
+	const allPages = locales.map(async (locale) => {
+		const localePages = await fetchAPI(`/pages?_locale=${locale}`)
+		return localePages
+	})
+
+	const pages = await (await Promise.all(allPages)).flat()
+
+	const paths = pages.map((page) => {
+		// Decompose the slug that was saved in Strapi
+		const slugArray = !page.slug ? false : page.slug.split('/')
+
+		return {
+			params: { slug: slugArray },
+			// Specify the locale to render
+			locale: page.locale,
+		}
+	})
+
+	return { paths, fallback: true }
 }
 
-export async function getServerSideProps({
+export async function getStaticProps({
 	locale,
 	locales,
 	defaultLocale,
@@ -103,6 +85,11 @@ export async function getServerSideProps({
 	const slug = params.slug ? params.slug[0] : ''
 
 	const pageData = await getAllPageData(locale, slug)
+
+	if (pageData == null) {
+		// Giving the page no props will trigger a 404 page
+		return { props: {} }
+	}
 
 	const pageContext = {
 		locale: pageData.locale,
