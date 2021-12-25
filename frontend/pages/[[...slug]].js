@@ -1,6 +1,3 @@
-import { gql } from '@apollo/client'
-import client from '../lib/apollo-client'
-
 import BlockManager from '../components/shared/BlockManager'
 import Layout from '../components/shared/Layout'
 import Seo from '../components/shared/Seo'
