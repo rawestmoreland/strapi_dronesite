@@ -3,6 +3,6 @@ services:
     strapi:
         image: strapi/strapi
         volumes:
-            - ./backend/app:/srv/app
+            - ./backend:/srv/app
         ports:
             - '1337:1337'
