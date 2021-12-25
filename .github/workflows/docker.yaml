@@ -38,4 +38,4 @@ jobs:
           docker build ./backend -t rawestmoreland/dronesite_backend:dev
       - name: Docker push the things
         run: |
-          docker push rawestmoreland/dicksthoughts_backend:dev
+          docker push rawestmoreland/dronesite_backend:dev
