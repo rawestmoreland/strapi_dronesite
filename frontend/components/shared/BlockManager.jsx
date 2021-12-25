@@ -4,7 +4,6 @@ import PhotoGrid from '../blocks/PhotoGrid'
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
 	let Block
-	console.log(__component)
 
 	switch (__component) {
 		case 'blocks.hero':
