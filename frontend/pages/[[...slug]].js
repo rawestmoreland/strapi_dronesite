@@ -4,12 +4,21 @@ import client from '../lib/apollo-client'
 import BlockManager from '../components/shared/BlockManager'
 import Layout from '../components/shared/Layout'
 import Seo from '../components/shared/Seo'
+import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
 import { getLocalizedPaths } from '../utils/localize-helpers'
 import { getGlobalData, getAllPageData, fetchAPI } from '../utils/api-helpers'
 
 const Universals = ({ pageData, global, pageContext }) => {
+	const router = useRouter()
 	const blocks = pageData?.blocks
 	const metaData = pageData?.metaData
+
+	// Check if the required data was provided
+	if (!router.isFallback && !blocks?.length) {
+		return <ErrorPage statusCode={404} />
+	}
+
 	return (
 		<Layout global={global} pageContext={pageContext}>
 			<Seo metaData={metaData} />
@@ -18,7 +27,7 @@ const Universals = ({ pageData, global, pageContext }) => {
 	)
 }
 
-export async function gtStaticPaths({ locales }) {
+export async function getStaticPaths({ locales }) {
 	// array of locales provided in context object in getStaticPaths
 	const paths = await Promise.all(
 		locales.map(async (locale) => {

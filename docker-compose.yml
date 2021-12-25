@@ -1,8 +1,12 @@
 version: '3'
 services:
-    strapi:
+    strapi_dronesite:
         image: rawestmoreland/dronesite_backend:dev
         volumes:
             - ./backend:/srv/app
         ports:
             - '1336:1336'
+    dronesite_frontend_dev:
+        image: rawestmoreland/dronesite_frontend:dev
+        ports:
+            - '3001:3001'
