@@ -6,7 +6,9 @@ services:
             - ./backend:/srv/app
         ports:
             - '1336:1336'
-    dronesite_frontend_dev:
-        image: rawestmoreland/dronesite_frontend:dev
-        ports:
-            - '3001:3001'
+    # dronesite_frontend_dev:
+    #     image: rawestmoreland/dronesite_frontend:dev
+    #     depends_on:
+    #         - strapi_dronesite
+    #     ports:
+    #         - '3001:3001'

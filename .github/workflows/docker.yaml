@@ -36,6 +36,9 @@ jobs:
       - name: Docker build the strapi backend
         run: |
           docker build ./backend -t rawestmoreland/dronesite_backend:dev
+      - name: Docker build dicksthoughts Gatsby frontend dev
+        run: |
+          docker build ./frontend/ -t rawestmoreland/dicksthoughts_gatsby:dev -f ./frontend/Dockerfile.dev
       - name: Docker push the things
         run: |
           docker push rawestmoreland/dronesite_backend:dev
