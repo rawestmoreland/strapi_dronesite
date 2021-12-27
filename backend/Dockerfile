@@ -2,7 +2,7 @@ FROM strapi/strapi
 
 WORKDIR /srv/app
 
-COPY ./package.json ./
+COPY ./package*.json ./
 
 RUN npm install
 
