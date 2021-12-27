@@ -1,2 +1,3 @@
 replacements.txt
 *.git
+node_modules
