@@ -5,6 +5,7 @@
   "description": "My Commercial Drone Photography Site Backend",
   "scripts": {
     "dev": "strapi develop",
+    "dev-local": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"

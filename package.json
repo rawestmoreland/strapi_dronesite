@@ -3,6 +3,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "lerna run dev --parallel",
+		"dev-local": "lerna run dev-local --parallel",
 		"dev-backend": "cd backend && npm run dev",
 		"postinstall": "lerna bootstrap"
 	},
