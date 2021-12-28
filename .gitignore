@@ -1,3 +1,7 @@
 replacements.txt
 *.git
 node_modules
+.vercel
+
+# Local Netlify folder
+.netlify
