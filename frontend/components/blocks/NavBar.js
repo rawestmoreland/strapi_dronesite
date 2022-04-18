@@ -33,14 +33,14 @@ const NavBar = ({ navbar, pageContext }) => {
 				)}
 				<button
 					className='p-1 md:hidden'
-					onClick={() => setShowMobileMenu(!showMobileMenu)}
+					onClick={() => setShowMobileMenu(true)}
 				>
 					<MdMenu className='h-8 w-auto' />
 				</button>
 				{showMobileMenu && (
 					<MobileMenu
 						navbar={navbar}
-						onClose={() => setShowMobileMenu(false)}
+						closeSelf={() => setShowMobileMenu(false)}
 					/>
 				)}
 			</div>

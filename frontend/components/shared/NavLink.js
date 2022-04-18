@@ -6,7 +6,7 @@ export default function NavLink({ link, children }) {
 	if (isInternalLink) {
 		return (
 			<Link href='/[[...slug]]' as={link.url}>
-				{children}
+				<a>{children}</a>
 			</Link>
 		)
 	}

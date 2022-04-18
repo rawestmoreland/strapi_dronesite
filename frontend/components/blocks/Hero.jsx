@@ -15,7 +15,7 @@ const Hero = ({ picture, title, label, CTAButton }) => {
 					{title}
 				</h1>
 				<h2
-					className='font-base tracking-wider text-base md:text-2xl mb-2 md:mb-4
+					className='font-base tracking-wider text-base md:text-2xl my-2 md:mb-4 px-4
 				'
 				>
 					{label}
@@ -26,8 +26,6 @@ const Hero = ({ picture, title, label, CTAButton }) => {
 						variant={CTAButton.variant}
 						type={CTAButton.type}
 						size={CTAButton.size}
-						backgroundColor='lighter-blue'
-						textColor='shadow-of-light'
 						url={`${CTAButton.url ? CTAButton.url : '#'}`}
 					/>
 				)}

@@ -1,32 +1,19 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import classNames from 'classnames'
 
-export default function ButtonLink({
-	text,
-	variant,
-	type,
-	url,
-	size,
-	backgroundColor,
-	textColor,
-}) {
+export default function ButtonLink({ text, variant, type, url, size }) {
 	return (
-		// TODO: Maybe merge this with the Button component.
 		<div
 			className={`flex items-center justify-center p-1 text-sm md:text-lg ${
 				variant === 'rounded' ? 'rounded' : ''
-			} ${
+			} 
+			${
 				type === 'outlined'
-					? 'border border-' +
-					  backgroundColor +
-					  ' bg-transparent text-shadow-of-light'
-					: 'border border-' +
-					  backgroundColor +
-					  ' bg-' +
-					  backgroundColor +
-					  ' text-' +
-					  textColor
-			} ${
+					? 'border-2 border-lighter-blue bg-transparent text-shadow-of-light'
+					: 'border-2 border-lighter-blue bg-lighter-blue text-shadow-of-light'
+			} 
+			${
 				size === 'small'
 					? 'h-8 w-16'
 					: size === 'medium'
@@ -45,11 +32,9 @@ export default function ButtonLink({
 
 ButtonLink.defaultProps = {
 	size: 'fit',
-	textColor: 'shadow-of-light',
 	variant: 'rectangular',
 	type: 'filled',
 	url: '#',
-	backgroundColor: 'lighter-blue',
 }
 
 ButtonLink.propTypes = {
@@ -57,6 +42,4 @@ ButtonLink.propTypes = {
 	variant: PropTypes.oneOf(['rounded', 'rectangular']),
 	type: PropTypes.oneOf(['outlined', 'filled']),
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'fit']),
-	backgroundColor: PropTypes.string,
-	textColor: PropTypes.string,
 }
